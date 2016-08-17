@@ -1,11 +1,11 @@
 //js 变量提升 hoisting
 $(function () {
-   var g={};
+    var g={};
     g.abc = {
         name: "chj",
         alertName:function () {
             alert(this.name);
-         },
+        },
         test1:function(){
             var v='Hello world';
             alert(v);
@@ -35,7 +35,7 @@ $(function () {
         var b='two';
         var c='three';
     })();
-   // 实际上他是这个样子的：
+    // 实际上他是这个样子的：
     (function(){
         var a, b,c;
         a='one';
@@ -46,7 +46,7 @@ $(function () {
     (function(){
         var v='hello world';
         (function (){
-          var v;
+            var v;
             alert(v);
             v='i love you';
         })();
@@ -59,7 +59,7 @@ $(function () {
     (function(){
         foo();
         function foo(){
-          alert("wo laizi foo");
+            alert("wo laizi foo");
         };
     })();
     //函数声明方式提升成功 弹出 我wo laizi foo
