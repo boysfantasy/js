@@ -1,0 +1,25 @@
+
+
+this is a git operating instructions
+安装 https://git-for-windows.github.io 下载镜像，默认安装
+安装之后 在开始菜单里找到“Git”->“Git Bash”  或者右键能发现
+mkdir test dos语句创建 一个文件夹test
+git init 创建一个新的空的仓库 之后路径改目录下有个.git仓库（不要改变里面的东西）
+
+git add 1.txt 把文件添加到仓库
+git commit -m "add 1.txt" 把文件提交到仓库,-m 后面提交信息，一定要写
+git status 掌握仓库当前的状态
+git diff 1.txt 参看修改的内容
+git log 显示从最近到最远的提交日志，可以看到3次提交
+git log --pretty=oneline 以一行的形式查看信息
+git reset -hard HEAD^  HEAD^回退上个版本 上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100
+
+你从21世纪坐时光穿梭机来到了19世纪，想再回去已经回不去了，肿么办？
+
+办法其实还是有的，只要上面的命令行窗口还没有被关掉，你就可以顺着往上找啊找啊，找到那个append GPL的commit id是3628164...，于是就可以指定回到未来的某个版本：
+
+$ git reset --hard 3628164  3628164是commit id
+HEAD is now at 3628164 append GPL
+
+git reflog  用来查看记录你的每一次命令
+git remote rm origin 删除与github的链接
