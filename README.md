@@ -1,3 +1,6 @@
+<<<<<<< HEAD
 # js
 sonme  knowledge of js
-这是第二次提交
+第三次提交我要项目放在新的仓库test
+
+
