@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body style="margin: 0px auto;padding: 0px;width: 1000px;">
+<script>
+    window.onload = function () {
+
+
+        var odiv = document.getElementById('c1');
+        var odiv2 = document.getElementById('c2');
+        document.onclick = function (e) {
+            var oEvent = e || event;
+//            console.log("screenX:",oEvent.screenX);
+//            console.log("screenY:",oEvent.screenY);
+//            console.log("clientX:",oEvent.clientX);
+//            console.log("clientY:",oEvent.clientY);
+//            console.log("pageX:",oEvent.pageX);
+//            console.log("pageY:",oEvent.pageY);
+
+            //oEvent.clientX  游览器大小可视区域的X 跟screenX相比就是将参照点改成了浏览器内容区域的左上角
+            //oEvent.clientY  游览器大小可视区域的Y
+            //oEvent.screenX  屏幕大小可视区域的X
+            //oEvent.screenY  屏幕大小可视区域的Y
+            //clientX和screenY 和滚动条无关
+            //pageX 游览器大小可视区域的X 跟screenX相比就是将参照点改成了浏览器内容区域的左上角 跟滚动条有关
+
+        }
+       // console.log(odiv.offsetLeft);//已游览器左上角为主 指 obj 相对于版面或由 offsetParent 属性指定的父坐标的计算左侧位置，整型，单位像素
+        //console.log(odiv.offsetTop);
+
+       //  console.log(odiv.clientLeft);//div 左边框的大小
+       // console.log(odiv.clientTop);//div 上边框的大小
+       // console.log(odiv2.scrollLeft);
+        //console.log(odiv2.scrollTop);
+
+//        console.log(odiv2.scrollLeft);  得到元素在水平和垂直方向上滚动了多远,单位是象素
+//        console.log(odiv2.scrollTop);
+        console.log(odiv.style.left);//css left的多少
+
+       console.log(odiv.style.top);
+
+        //console.log(odiv.offsetWidth);//包括边框,内边距 ，指 obj 控件自身的绝对宽度，不包括因 overflow 而未显示的部分，也就是其实际占据的宽度，整型，单位像素，滑动栏
+        //console.log(odiv.offsetHeight);
+        //console.log(odiv2.clientWidth);//内边距 ，不包括外边距 边框,滑动栏
+        //console.log(odiv2.clientHeight);
+        //console.log(odiv2.scrollWidth);//不管有多少对象在页面上可见,他们得到的是整体.包括被隐藏的滑动部分
+        //console.log(odiv2.scrollHeight);
+
+
+    }
+</script>
+<div style="width: 400px;height: 400px;background-color: firebrick;margin: 100px;overflow: scroll;border: 2px solid forestgreen;position: absolute;left: 100px;top: 100px" id="c2">
+<div style="width: 500px;height: 500px;background-color: greenyellow;border: 1px solid darkslategray;margin: 100px;padding: 20px;position: absolute;left: 100px;top: 100px" id="c1">
+</div>
+</div>
+</body>
+</html>

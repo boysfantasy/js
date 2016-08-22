@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../jq/jquery-1.11.0.min.js"></script>
+    <!--<script src="index.js"></script>-->
+</head>
+<body>
+<script>
+    function all(call_fun) {
+        var k = 0
+        for (var i = 0; i < 10099990; i++) {
+            k = k + i
+        }
+        console.log(arguments[0].toString());
+        console.log(arguments[1]);
+        call_fun(k)
+    }
+
+
+    all(function (k) {
+        console.log(k)
+    })
+</script>
+
+</body>
+</html>

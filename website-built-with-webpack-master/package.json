@@ -1,0 +1,61 @@
+{
+  "name": "my-site",
+  "version": "1.0.0",
+  "description": "my site",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "eslint": "eslint src",
+    "stylelint": "stylelint src/**/*.scss",
+    "clean": "rimraf dist",
+    "start": "better-npm-run start",
+    "build": "better-npm-run build"
+  },
+  "betterScripts": {
+    "start": {
+      "command": "webpack-dev-server --config webpack --hot --inline --progress --colors",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "build": {
+      "command": "npm run clean && webpack --config webpack --progress --colors",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  },
+  "keywords": [
+    "site"
+  ],
+  "author": "zhaojintian",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.9.0",
+    "babel-eslint": "^6.0.4",
+    "babel-loader": "^6.2.4",
+    "better-npm-run": "0.0.8",
+    "css-loader": "^0.23.1",
+    "eslint": "^2.11.0",
+    "eslint-config-standard": "^5.3.1",
+    "eslint-config-standard-react": "^2.4.0",
+    "eslint-plugin-flow-vars": "^0.4.0",
+    "eslint-plugin-promise": "^1.3.1",
+    "eslint-plugin-react": "^5.1.1",
+    "eslint-plugin-standard": "^1.3.2",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
+    "html": "0.0.10",
+    "html-loader": "^0.4.3",
+    "html-webpack-plugin": "^2.17.0",
+    "node-sass": "^3.7.0",
+    "rimraf": "^2.5.2",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "stylelint": "^6.5.1",
+    "stylelint-config-standard": "^8.0.0",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
