@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>factory_model</title>
+</head>
+<body>
+	<script>
+
+		//工厂模式
+	    function Person(name,age,job) {
+	    	var o =new Object()
+	    	o.name=name;
+	    	o.age=age;
+	    	o.job=job;
+	    	o.sayname=function(){
+	    		alert(this.name);
+	    	};
+	    	return o;
+	    }
+	    var p1=new Person("chj","12","Engineer");
+	    p1.sayname();
+	    //创建对象模式
+	    //工厂模式
+	    function worker(name,age,job) {
+	    
+	    	this.name=name;
+	    	this.age=age;
+	    	this.job=job;
+	    	this.sayname=function(){
+	    		alert(this.name);
+	    	};
+	    	
+	    }
+	    var w1=new worker("chj","12","Engineer");
+
+
+	</script>
+</body>
+</html>

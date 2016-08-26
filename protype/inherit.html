@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>博看文思</title>
+</head>
+<body>
+	<script>
+         // 构造函数继承 借用call apply
+         function person(name){
+         	this.name=name;
+         	this.sayname=function(){
+         		alert(this.name);
+         	}
+         }
+            person.prototype.alertName=function(){
+         	alert(this.name);
+         }
+        
+         function work(name,age){
+         	person.call(this,name)
+         	this.age=age;
+         
+      	}
+         //var instance= new work("asfasf",12);
+        // var instance2=new work("po",33)
+       	 //instance.alertName();//错误  父类型原型的方法，子类型无法继承
+       	 //无法做到函数的服用，方法只能在构造函数中定义
+        
+
+       	//组合继承 集合构造函数继承和原型链,比较中庸的一种方式，子类型可以
+       	//有自己的自己的属性也有共有的方法
+       	function SuperType(name){
+       		this.name=name;
+       		this.colors=["red","blue","green"];
+
+       	}
+       	SuperType.prototype.sayname=function(){
+       		alert(this.name);
+       	}
+       	function SubType(name,age){
+       		//构造函数继承属性，可以向父（超）类型传递值
+       		SuperType.call(this,name)
+       		this.age=age;
+       	}
+       	//继承方法
+       	SubType.prototype=new SuperType();
+       	//SubType PtoType指向SuperType的实例，实例的指针是指向原型对象的.
+       	//其实也就是SuperType的实例指向SyperType Protype。这样写原本存在SuperType的
+       	//实例中的所有属性和方法，现在也存在于SubType.Protype中了
+       	 SubType.prototype.constructor=SubType;//(这句话我不太理解，SubType prototype的constructor指向SubType)
+       	SubType.prototype.sayAge=function(){
+       		alert(this.age);
+       	}
+       	function ThirdType(name,age,job){
+       		SubType.call(this,name,age);
+       		this.job=job;
+
+       	}
+       	ThirdType.prototype=new SubType();
+       	 ThirdType.prototype.constructor=ThirdType;
+		ThirdType.prototype.sayJob=function(){
+			alert(this.job);
+		}
+
+       	var s1= new SuperType("Ace");
+ 
+       //	console.log(s1);
+
+       	var instance1=new SubType("luffy",20);
+       	instance1.colors.push("black");
+       //	alert(instance1.colors);
+       	//instance1.sayname();
+       	//instance1.sayAge();
+       	var instance2=new SubType("sabo",23);
+
+       	// alert(instance2.colors);
+       	// instance2.sayname();
+       	// instance2.sayAge();
+       	var instance3=new ThirdType("leili",58,"soft");
+       	instance3.sayJob();
+       	instance3.sayname();
+       	  	instance3.sayAge();
+       	console.log(instance2);
+
+	</script>
+</body>
+</html>

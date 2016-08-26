@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>博看文思</title>
+</head>
+<body>
+	<script>
+   		function Worker(name) {
+	    	this.name=name;
+	    	this.sayname=function(){
+	    		alert(this.name);
+	    	};
+	    }
+	    Worker.prototype.name="chj";
+	    Worker.prototype.age=23;
+	    Worker.prototype.job="soft Engineer";
+	    var w1=new Worker("a");
+	    // w1.sayname();//来自实例
+	     // alert(w1.name);//a 来自实例
+	    // alert(w1.age);//23 来自原型
+	    // delete w1.name;
+	    //  alert(w1.name);//chj 来自原型
+	    //  
+	    //稳妥构造函数对象
+	    function Person(name,age,job){
+	    	var o=new Object();
+	    	o.sayname=function(){
+	    		alert(name);
+	    	}
+	    	return o;
+	    }
+       var friend=Person("asf","12","afasdf");
+       friend.sayname();
+
+	</script>
+</body>
+</html>
