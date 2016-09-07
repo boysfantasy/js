@@ -78,11 +78,46 @@
        	// instance2.sayname();
        	// instance2.sayAge();
        	var instance3=new ThirdType("leili",58,"soft");
-       	instance3.sayJob();
-       	instance3.sayname();
-       	  	instance3.sayAge();
-       	console.log(instance2);
+       	//instance3.sayJob();
+       	//instance3.sayname();
+       	 // 	instance3.sayAge();
+       	//console.log(instance2);
 
+       	//寄生组合是继承
+       	function inheritPrototype(son,father){
+       		var prototype=Object(father.prototype);
+       		prototype.constructor=son;
+       		son.prototype=prototype;//son原型 等于father原型 所以后者要定义son.prototype必须在这个函数之后
+       	}
+       	function one(name){
+       		this.name=name;
+       	}
+       	one.prototype.sayname=function(){
+       		alert(this.name)
+       	}
+       	function two(name,age){
+       		one.call(this,name)
+       		this.age=age;
+       	}
+       	inheritPrototype(two,one);
+       	two.prototype.sayAge=function(){
+       		alert(this.age);
+       	}
+       	function three(name,age,job){
+       		two.call(this,name,age);
+       		this.job=job;
+       	}
+     
+       	inheritPrototype(three,one);
+    	three.prototype.sayJob=function(){
+       		alert(this.job);
+       	}
+       	var o1=new three("luojie","45","parite");
+       	o1.sayname();
+       	o1.sayAge();
+       	o1.sayJob();
+       	var o2=new two("luojie","45");
+       	
 	</script>
 </body>
 </html>
